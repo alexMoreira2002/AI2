@@ -1,0 +1,22 @@
+# dependencies
+node_modules/
+
+# logs
+*.log
+
+# runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# local configuration
+.env*
+
+
+# misc
+.DS_Store
+
+build/
+
+.idea/

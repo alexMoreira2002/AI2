@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Integração Softinsa</title>
+    <link rel="icon" href='softinsa.ico'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .hero {
+            background-color: #369fb8;
+            color: white;
+            padding: 50px 0;
+            position: relative;
+        }
+
+        .contentor {
+            margin-left: 100px;
+            text-align: left;
+        }
+
+        .btn-light {
+            margin: 0;
+            margin-left: 0;
+            border-radius: 15px;
+            color: #39639C;
+        }
+
+        .btn-dark:hover {
+            background-color: #39639C;
+            color: white !important;
+        }
+
+        .btn-dark {
+            margin: 0;
+            margin-left: 0;
+            border-radius: 15px;
+            background-color: white;
+            color: #39639C;
+            border: 1px solid #39639C;
+        }
+
+        .logo {
+            margin-left: 60px;
+        }
+
+        .detalhes{
+            background-color: #F8F8F8;
+            color: white;
+            padding: 30px 0;
+            position: relative;
+        }
+
+        .info {
+            background-color: #39639C;
+            color: white;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .fim-esquerda{
+            color: #39639C;
+            margin-left: 100px;
+            font-weight: 500;
+            font-size: 1.6rem;
+            padding: 0px 0;
+            position: relative;
+        }
+
+        .fim-direita{
+            color: #39639C;
+            font-weight: 500;
+            font-size: 1.6rem;
+            padding: 0px 0;
+            position: relative;
+            margin-right: 100px;
+        }
+
+        .texto-info {
+            font-size: 1.4rem; 
+            font-weight: 400;
+            margin-top: 20px;
+            color: white;
+            line-height: 1.5;
+        }
+
+        .hero img {
+            max-width: 150px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .nome {
+            font-size: 2.5rem; /* Ajuste de tamanho */
+            margin-bottom: 20px;
+            font-style: italic;
+            font-weight: 200;
+        }
+        .titulo {
+            font-size: 3.5rem; /* Ajuste de tamanho */
+            margin-top: 20px;
+            font-weight: 700; /* Ajuste de peso */
+        }
+
+        .desc0 {
+            font-size: 1.2rem; /* Ajuste de tamanho */
+            font-weight: 300;
+            margin-top: 20px;
+            color: #39639C;
+            max-width: 700px;
+            margin-left: 100px;
+            line-height: 1.7;
+        }
+
+        .desc1 {
+            font-size: 1.6rem; /* Ajuste de tamanho */
+            font-weight: 600;
+            margin-top: 20px;
+            color: #39639C;
+        }
+
+        .desc2 {
+            font-size: 1.6rem; /* Ajuste de tamanho */
+            font-weight: 600;
+            margin-top: 20px;
+            color: #369fb8;
+        }
+
+        .corpo {
+            font-size: 1.2rem; 
+            font-weight: 100;
+            margin-top: 18px;
+            margin-bottom: 30px;
+            color: #212121;
+        }
+
+        .desc1, .desc2, .corpo {
+            max-width: 500px; /* Exemplo de largura máxima */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .text-start {
+            text-align: left;
+        }
+
+        .text-end {
+            text-align: right;
+        }
+    
+        .hero .btn {
+            margin: 20px 10px;
+        }
+        .navbar-brand img {
+            transform: scale(1.5); 
+            transition: transform 0.3s ease; 
+        }
+        .features {
+            padding: 70px 0;
+            max-width: 1100px;
+            margin: 0 auto; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }
+        .features .col-md-6 {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start; /* Ajuste para alinhar ao topo */
+        }
+        .feature-number {
+            width: 80px; /* Mantenha a largura e a altura iguais */
+            height: 80px; /* Ajustado para igualar a largura */
+            border-radius: 50%; /* Ajuste para formar um círculo perfeito */
+            background-color: #369fb8;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid">
+          <a class="navbar-brand ms-5" href="#">
+            <img class="logo" src="logo-softinsa.svg" alt="Logo" height="45">
+          </a>
+        </div>
+    </nav>
+    <header class="hero text-center">
+        <div class="contentor">
+            <p class="text-start nome">TIShares</p>
+                <h1 class="text-start titulo">A aplicação perfeita para descubrir novos horizontes</h1>
+                <a href="/" class="btn btn-dark">Acesso à página de Administração</a>
+                <a href="https://drive.google.com/uc?export=download&id=1IcqSbJwp0LMQ7jJe11wuaMC-YMqwemTP" class="btn btn-dark">Download App Mobile</a>
+        </div>
+    </header>  
+    <section class="text-center features">
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-6" class="text-start">
+                    <div class="d-flex align-items-start">
+                        <div>
+                            <h2 class="desc1 text-start" >1. Conheça o Melhor de Cada Cidade</h2>
+                            <p class="corpo text-start">A nossa aplicação disponibiliza uma ampla variedade de informações, como sugestões de restaurantes, opções de moradia, atividades esportivas, comércio local, entretenimento e muito mais. O objetivo é facilitar a adaptação dos colaboradores à nova região e, consequentemente, à nossa organização.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start">
+                        <div>
+                            <h2 class="desc2 text-start">2. Facilite a Integração Remota</h2>
+                            <p class="corpo text-start">Através da nossa aplicação, terá acesso a diversas avaliações e recomendações feitas pelos colaboradores da Softinsa, economizando tempo em pesquisas. Dessa forma, você poderá contar com informações variadas e atualizadas para garantir uma melhor experiência, onde quer que esteja.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start">
+                        <div>
+                            <h2 class="desc2 text-start">3. Recomendações Personalizadas</h2>
+                            <p class="corpo text-start">Se é um novo colaborador em uma cidade desconhecida, pode contar com as sugestões dos seus colegas para descobrir os melhores lugares e atividades. Desde os restaurantes mais recomendados até opções de lazer, esportes e saúde, a nossa aplicação será o seu guia para aproveitar ao máximo tudo o que precisar, a qualquer momento.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex align-items-start">
+                        <div>
+                            <h2 class="desc1 text-start">4. Uma Ferramenta Completa</h2>
+                            <p class="corpo text-start">Com um portal web para administradores e uma aplicação móvel, garantimos que todas as informações estão sempre ao seu alcance. Queremos que você se sinta em casa, não importa onde esteja trabalhando!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="info">
+        <p class=" text-center texto-info">Deixe se levar pela curiosidade e por tudo oque a susa nova cidade tem para oferecer</p>
+    </div>  
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

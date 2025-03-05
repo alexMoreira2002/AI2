@@ -1,0 +1,47 @@
+.menu-item, .menu-item.active {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  cursor: pointer;
+  box-sizing: border-box; /* Garante que padding e border sejam incluídos no cálculo do tamanho */
+}
+
+.menu-item:hover, .menu-item.active {
+  background-color: rgba(255, 255, 255, 0.1); /* Consistente para hover e active */
+}
+
+/* Ajuste adicional para .menu-item.active se necessário */
+.menu-item.active {
+  background-color: rgba(255, 255, 255, 0.2); /* Mais visível para estado ativo */
+  /* Garantir que não há alterações de layout adicionais aqui */
+}
+
+.menu {
+  display: flex; /* Torna a sidebar um container flexível */
+  flex-direction: column; /* Organiza os itens em coluna */
+  justify-content: space-between; /* Distribui o espaço entre os itens */
+  height: 100vh; /* Altura total da viewport */
+  overflow-y: auto; /* Permite scroll vertical se o conteúdo exceder a altura */
+  background-color: #369fb8; /* Cor de fundo da sidebar */
+  width: 300px; /* Largura da sidebar */
+  color: white;
+  padding: 5%;
+}
+
+.icone {
+  margin-right: 10px;
+  align-self: center;
+  font-size: 1.9rem;
+}
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

@@ -1,0 +1,86 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@hookform/resolvers": "^3.6.0",
+    "@mui/icons-material": "^6.0.0-alpha.8",
+    "@mui/material": "^6.0.0-alpha.8",
+    "@mui/x-data-grid": "^7.6.2",
+    "@mui/x-date-pickers-pro": "^7.7.0",
+    "@react-google-maps/api": "^2.19.3",
+    "@react-oauth/google": "^0.12.1",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.6.8",
+    "bootstrap": "^5.3.3",
+    "cross-spawn": "^7.0.3",
+    "date-fns": "^3.6.0",
+    "dayjs": "^1.11.11",
+    "i18next": "^23.11.5",
+    "jsx-runtime": "^1.2.0",
+    "jwt-decode": "^4.0.0",
+    "leaflet": "^1.9.4",
+    "react": "^18.3.1",
+    "react-big-calendar": "^1.13.0",
+    "react-date-range": "^2.0.1",
+    "react-dom": "^18.3.1",
+    "react-google-login": "^5.2.2",
+    "react-google-maps": "^9.4.5",
+    "react-hook-form": "^7.51.5",
+    "react-i18next": "^14.1.2",
+    "react-icons": "^5.2.1",
+    "react-leaflet": "^4.2.1",
+    "react-material-ui-carousel": "^3.4.2",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.22.3",
+    "react-scripts": "5.0.1",
+    "react-share": "^5.1.0",
+    "react-slick": "^0.30.2",
+    "react-toastify": "^10.0.5",
+    "slick-carousel": "^1.8.1",
+    "sweetalert2": "^11.11.0",
+    "web-vitals": "^2.1.4",
+    "yup": "^1.4.0"
+  },
+  "scripts": {
+    "start:local": "cross-env REACT_APP_API_URL=http://localhost:3001 REACT_APP_FRONTEND=http://localhost:3000 react-scripts start",
+    "start:host": "cross-env REACT_APP_API_URL=https://pint-f1tf.onrender.com REACT_APP_FRONTEND=https://pint-softinsa.vercel.app react-scripts start",
+    "start": "react-scripts start",
+    "build": "cross-env REACT_APP_API_URL=https://pint-f1tf.onrender.com REACT_APP_FRONTEND=https://pint-softinsa.vercel.app react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": "20.x"
+  },
+  "resolutions": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
