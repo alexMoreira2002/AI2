@@ -77,6 +77,45 @@ exports.criarUtilizador = async (req, res) => {
   }
 };
 
+exports.registar = async (req, res) => {
+  const { nome, email } = req.body;
+
+  // Validação básica
+  if (!nome || !email) {
+    return res.status(400).send({ error: 'Nome e email são obrigatórios' });
+  }
+
+  try {
+    // Verifica se o email já está registrado
+    const utilizadorExistente = await Utilizador.findOne({ where: { email } });
+    if (utilizadorExistente) {
+      return res.status(400).send({ error: 'Email já está em uso' });
+    }
+
+    // Cria um utilizador com estado padrão
+    const novoUtilizador = await Utilizador.create({
+      nome,
+      email,
+      estado: true, // Ativo por padrão
+      isAdmin: false, // Não admin por padrão
+      idPosto: null // Sem posto associado por padrão
+      // Nota: A senha será definida num processo separado
+    });
+
+    res.status(201).send({ 
+      message: 'Registro realizado com sucesso',
+      utilizador: {
+        id: novoUtilizador.id,
+        nome: novoUtilizador.nome,
+        email: novoUtilizador.email
+      }
+    });
+  } catch (error) {
+    console.error('Erro no registro:', error);
+    res.status(500).send({ error: 'Erro ao registrar utilizador' });
+  }
+};
+
 exports.apagarUtilizador = async (req, res) => {
   const { id } = req.params;
 
