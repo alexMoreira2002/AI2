@@ -8,6 +8,7 @@ router.get('/', auth, utilizadorController.getUtilizador);
 router.get('/completo', auth, utilizadorController.getUtilizadorCompleto);
 router.get('/todos', utilizadorController.getUtilizadores);
 router.get('/:id', utilizadorController.utilizadorPorId);
+router.post('/registar', utilizadorController.registar);
 router.post('/', utilizadorController.criarUtilizador);
 router.put('/:id', uploadUtilizadores.single('foto'), utilizadorController.atualizarUtilizador);
 router.put('/:id/preferencias', utilizadorController.associarPreferencias);

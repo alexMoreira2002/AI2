@@ -16,11 +16,11 @@ function RegistarForm() {
 
   const handleRegistar = async () => {
     try {
-      const response = await api.post('/registar', {
+      const response = await api.post('/utilizador/registar', {
         nome,
-        email,
+        email
       });
-
+  
       Swal.fire({
         title: 'Sucesso!',
         text: response.data.message,
@@ -34,14 +34,14 @@ function RegistarForm() {
       if (error.response) {
         Swal.fire({
           title: 'Erro!',
-          text: error.response.data.error,
+          text: error.response.data.error || 'Erro ao registrar',
           icon: 'error',
           confirmButtonColor: '#369fb8',
         });
       } else {
         Swal.fire({
           title: 'Erro!',
-          text: 'Erro ao registar. Por favor, tente novamente.',
+          text: 'Erro ao conectar com o servidor',
           icon: 'error',
           confirmButtonColor: '#369fb8',
         });

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, IconButton, Select, MenuItem, FormControl, InputLabel, Typography } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { Grid } from '@mui/material';
 import api from '../api/api';
 import moment from 'moment';
@@ -13,6 +14,8 @@ const ListaUtilizadores = () => {
   const [postos, setPostos] = useState([]);
   const [form, setForm] = useState({ nome: '', email: '', estado: false, isAdmin: false, idPosto: '' });
   const [isEdit, setIsEdit] = useState(false);
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [userToDelete, setUserToDelete] = useState(null);
 
   moment.locale('pt');
 
@@ -20,7 +23,6 @@ const ListaUtilizadores = () => {
     fetchIdPostoAndUtilizadores();
     fetchPostos();
   }, []);
-  
   
   const fetchIdPostoAndUtilizadores = async () => {
     try {
@@ -56,16 +58,42 @@ const ListaUtilizadores = () => {
 
   const handleAddOrEdit = async () => {
     try {
+      let updatedUser;
       if (isEdit) {
-        await api.put(`/utilizador/${form.id}`, form);
+        const response = await api.put(`/utilizador/${form.id}`, form);
+        updatedUser = response.data; // Assumindo que a API retorna o utilizador atualizado
       } else {
-        await api.post('/utilizador', form);
+        const response = await api.post('/utilizador', form);
+        updatedUser = response.data; // Assumindo que a API retorna o novo utilizador
       }
-      fetchUtilizadores();
+  
+      // Atualiza o estado corretamente
+      setUtilizadores(prev => {
+        if (isEdit) {
+          return prev.map(user => user.id === updatedUser.id ? updatedUser : user);
+        } else {
+          return [...prev, updatedUser];
+        }
+      });
+  
       setOpen(false);
     } catch (error) {
       console.error('Erro ao adicionar/editar utilizador:', error);
     }
+  };
+  const handleDelete = async () => {
+    try {
+      await api.delete(`/utilizador/${userToDelete.id}`);
+      fetchUtilizadores();
+      setDeleteDialogOpen(false);
+    } catch (error) {
+      console.error('Erro ao apagar utilizador:', error);
+    }
+  };
+
+  const handleClickOpenDeleteDialog = (user) => {
+    setUserToDelete(user);
+    setDeleteDialogOpen(true);
   };
 
   const handleClickOpen = (user = null) => {
@@ -83,6 +111,10 @@ const ListaUtilizadores = () => {
     setOpen(false);
   };
 
+  const handleCloseDeleteDialog = () => {
+    setDeleteDialogOpen(false);
+  };
+
   const getPostoNome = (idPosto) => {
     const posto = postos.find((p) => p.id === idPosto);
     return posto ? posto.nome : '';
@@ -98,10 +130,14 @@ const ListaUtilizadores = () => {
     {
       field: 'actions',
       headerName: 'Ações',
+      width: 150,
       renderCell: (params) => (
         <>
           <IconButton color="primary" onClick={() => handleClickOpen(params.row)}>
             <EditIcon />
+          </IconButton>
+          <IconButton color="error" onClick={() => handleClickOpenDeleteDialog(params.row)}>
+            <DeleteIcon />
           </IconButton>
         </>
       ),
@@ -203,6 +239,22 @@ const ListaUtilizadores = () => {
           </Button>
           <Button onClick={handleAddOrEdit} color="primary">
             {isEdit ? 'Guardar' : 'Adicionar'}
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Dialog de confirmação para apagar */}
+      <Dialog open={deleteDialogOpen} onClose={handleCloseDeleteDialog}>
+        <DialogTitle>Confirmar Eliminação</DialogTitle>
+        <DialogContent>
+          <Typography>Tem a certeza que deseja eliminar o utilizador {userToDelete?.nome}?</Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDeleteDialog} color="primary">
+            Cancelar
+          </Button>
+          <Button onClick={handleDelete} color="error" autoFocus>
+            Eliminar
           </Button>
         </DialogActions>
       </Dialog>
